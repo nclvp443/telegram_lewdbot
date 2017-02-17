@@ -1,0 +1,10 @@
+{
+  "telegram":{
+    "bot_token":"" //Telegram Bot Token
+  },
+
+  "booru":{
+    "api_key":"", //Danbooru Api Key
+    "booru_username":"" //Danbooru Username
+  }
+}
