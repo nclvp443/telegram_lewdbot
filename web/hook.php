@@ -30,7 +30,8 @@ $sauce = $booruAPI[0]['source'];
 
 switch ($msg){
     case '/getlewds '.$keyword:
-        sendImage($id,'https://danbooru.donmai.us'.$urlkey);
+        $image = 'https://danbooru.donmai.us'.$urlkey;
+        sendImage($id, $image, $image);
         if(empty($booruAPI)){
             sendMessage($id,'No Lewds Found for '.$query);
         }
@@ -41,14 +42,13 @@ switch ($msg){
         break;
 }
 
-
 function sendMessage($id,$msg){
     $url = $GLOBALS[site].'/sendMessage?chat_id='.$id.'&text='.urlencode($msg);
     file_get_contents($url);
 }
 
-function sendImage($id,$photo){
-    $url = $GLOBALS[site].'/sendPhoto?chat_id='.$id.'&photo='.$photo;
+function sendImage($id,$photo,$caption){
+    $url = $GLOBALS[site].'/sendPhoto?chat_id='.$id.'&photo='.$photo.'&caption='.$caption;
     file_get_contents($url);
 }
 
